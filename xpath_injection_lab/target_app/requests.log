@@ -1,0 +1,158 @@
+2025-04-16 22:12:21 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.105:8080
+2025-04-16 22:12:21 - [33mPress CTRL+C to quit[0m
+2025-04-16 22:12:31 - 127.0.0.1 - - [16/Apr/2025 22:12:31] "[33mGET /ui HTTP/1.1[0m" 404 -
+2025-04-16 22:12:52 - 127.0.0.1 - - [16/Apr/2025 22:12:52] "[31m[1mGET /login HTTP/1.1[0m" 405 -
+2025-04-16 22:13:21 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.1.105:8080
+2025-04-16 22:13:21 - [33mPress CTRL+C to quit[0m
+2025-04-16 22:13:24 - 127.0.0.1 - - [16/Apr/2025 22:13:24] "[33mGET /ui HTTP/1.1[0m" 404 -
+2025-04-16 22:13:27 - 127.0.0.1 - - [16/Apr/2025 22:13:27] "[33mGET /ui HTTP/1.1[0m" 404 -
+2025-04-16 22:13:35 - 127.0.0.1 - - [16/Apr/2025 22:13:35] "[33mGET /ui HTTP/1.1[0m" 404 -
+2025-04-16 22:14:20 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.105:5000
+2025-04-16 22:14:20 - [33mPress CTRL+C to quit[0m
+2025-04-16 22:14:25 - Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/roger/Documents/Projects/Python/offsec_labs/xpath_injection_lab/target_app/app.py", line 26, in home
+    return render_template('templates/login.html')
+  File "/usr/lib/python3/dist-packages/flask/templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "/usr/lib/python3/dist-packages/jinja2/environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/jinja2/environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/jinja2/environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/usr/lib/python3/dist-packages/jinja2/loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: templates/login.html
+2025-04-16 22:14:25 - 127.0.0.1 - - [16/Apr/2025 22:14:25] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-04-16 22:14:25 - 127.0.0.1 - - [16/Apr/2025 22:14:25] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-16 22:14:31 - 127.0.0.1 - - [16/Apr/2025 22:14:31] "[31m[1mGET /login HTTP/1.1[0m" 405 -
+2025-04-16 22:15:13 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.105:5000
+2025-04-16 22:15:13 - [33mPress CTRL+C to quit[0m
+2025-04-16 22:15:16 - Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/home/roger/Documents/Projects/Python/offsec_labs/xpath_injection_lab/target_app/app.py", line 26, in home
+    return render_template('templates/login.html')
+  File "/usr/lib/python3/dist-packages/flask/templating.py", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "/usr/lib/python3/dist-packages/jinja2/environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/jinja2/environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/jinja2/environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "/usr/lib/python3/dist-packages/jinja2/loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3/dist-packages/flask/templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: templates/login.html
+2025-04-16 22:15:16 - 127.0.0.1 - - [16/Apr/2025 22:15:16] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-04-16 22:15:22 - 127.0.0.1 - - [16/Apr/2025 22:15:22] "[33mGET /login.html HTTP/1.1[0m" 404 -
+2025-04-16 22:17:36 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.105:5000
+2025-04-16 22:17:36 - [33mPress CTRL+C to quit[0m
+2025-04-16 22:17:39 - 127.0.0.1 - - [16/Apr/2025 22:17:39] "[33mGET /login.html HTTP/1.1[0m" 404 -
+2025-04-16 22:17:43 - 127.0.0.1 - - [16/Apr/2025 22:17:43] "GET / HTTP/1.1" 200 -
+2025-04-16 22:17:53 - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 920, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 939, in finalize_request
+    response = self.make_response(rv)
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1212, in make_response
+    raise TypeError(
+    ...<3 lines>...
+    )
+TypeError: The view function for 'login' did not return a valid response. The function either returned None or ended without a return statement.
+2025-04-16 22:17:53 - 127.0.0.1 - - [16/Apr/2025 22:17:53] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-04-16 22:18:19 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.105:5000
+2025-04-16 22:18:19 - [33mPress CTRL+C to quit[0m
+2025-04-16 22:18:31 - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 920, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 939, in finalize_request
+    response = self.make_response(rv)
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1212, in make_response
+    raise TypeError(
+    ...<3 lines>...
+    )
+TypeError: The view function for 'login' did not return a valid response. The function either returned None or ended without a return statement.
+2025-04-16 22:18:31 - 127.0.0.1 - - [16/Apr/2025 22:18:31] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-04-16 22:18:41 - Exception on /login [POST]
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 920, in full_dispatch_request
+    return self.finalize_request(rv)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 939, in finalize_request
+    response = self.make_response(rv)
+  File "/usr/lib/python3/dist-packages/flask/app.py", line 1212, in make_response
+    raise TypeError(
+    ...<3 lines>...
+    )
+TypeError: The view function for 'login' did not return a valid response. The function either returned None or ended without a return statement.
+2025-04-16 22:18:41 - 127.0.0.1 - - [16/Apr/2025 22:18:41] "[35m[1mPOST /login HTTP/1.1[0m" 500 -
+2025-04-16 22:20:40 - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.105:5000
+2025-04-16 22:20:40 - [33mPress CTRL+C to quit[0m
+2025-04-16 22:20:47 - 127.0.0.1 - - [16/Apr/2025 22:20:47] "POST /login HTTP/1.1" 200 -
+2025-04-16 22:20:54 - 127.0.0.1 - - [16/Apr/2025 22:20:54] "[31m[1mPOST /login HTTP/1.1[0m" 401 -
