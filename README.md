@@ -2,6 +2,9 @@
 
 A growing collection of offensive security labs and exploit scripts designed for hands-on vulnerability research and skill development. Each lab is self-contained and focuses on a specific vulnerability class or attack technique commonly encountered during web application and infrastructure assessments.
 
+This project reflects a guided, collaborative learning effort. Prompts and assignments were designed through interactive sessions with ChatGPT, while all practical implementation and experimentation was completed manually.
+
+
 ## Project Structure
 
 Each subdirectory represents a focused lab environment, containing:
@@ -41,4 +44,12 @@ Planned labs include:
 Each lab is built from scratch to reinforce both attacker and defender perspectives.
 
 ---
+
+## Attribution
+
+This project is part of an ongoing collaborative lab series developed with the assistance of OpenAI's ChatGPT for educational and offensive security research purposes.
+
+All source code, implementation details, and lab solutions are written and maintained by [Your Name or GitHub Username].
+
+Assignment structure, challenge design, and guidance are the result of an interactive development workflow using ChatGPT as a learning and mentoring assistant.
 
