@@ -2,19 +2,6 @@
 
 This project contains a deliberately vulnerable web application designed to demonstrate XPath injection vulnerabilities. It serves as the foundation for exploring blind XPath injection techniques through practical exploitation.
 
-## Project Structure
-
-xpath_injection_lab/
-├── target_app/
-│   ├── app.py                 # Vulnerable Flask app with login logic
-│   ├── users.xml              # XML file containing user credentials
-│   └── templates/
-│       └── login.html         # HTML login form for manual testing
-├── attacker_scripts/
-│   └── blind_xpath_exploit.py # (Placeholder) Attack script to be developed in Assignment 1
-├── requirements.txt           # Python dependencies
-└── README.md                  # This file
-
 ## Current Status
 
 The following components have been implemented:
