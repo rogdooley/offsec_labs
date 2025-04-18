@@ -20,6 +20,9 @@ This document tracks all assignments completed as part of the `xpath_injection_l
 Extend the existing tool to extract the passwords of admin users using blind XPath injection. The script should infer each password one character at a time by testing `substring()` conditions and observing HTTP 200/401 responses. Optionally, use previously discovered usernames to map credentials directly.
 [View Assignment 2](assignment_02.md)
 
+### Assignment 3: Inference-Based User Enumeration via XPath Injection
+Modify the tool to extract all users from the XML document, regardless of role. For each user, enumerate both the username and role using character-by-character XPath injection. Output results in a structured format, and optionally support `--extract all` to control this behavior.
+[View Assignment 3](assignment_03.md)
 
 ---
 
