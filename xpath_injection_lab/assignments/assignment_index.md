@@ -16,6 +16,11 @@ This document tracks all assignments completed as part of the `xpath_injection_l
 - Status: In Progress
 - [View Assignment 1](assignment_01.md)
 
+### Assignment 2: Blind XPath Extraction of Admin Passwords
+Extend the existing tool to extract the passwords of admin users using blind XPath injection. The script should infer each password one character at a time by testing `substring()` conditions and observing HTTP 200/401 responses. Optionally, use previously discovered usernames to map credentials directly.
+[View Assignment 2](assignment_02.md)
+
+
 ---
 
 ## Coming Soon
