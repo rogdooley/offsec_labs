@@ -9,16 +9,18 @@ from lxml import etree
 
 app = Flask(__name__)
 
-# Configure logging
+# Base directory for file serving and directory listing
+BASE_DIRECTORY = os.getcwd()
+
+log_path = os.path.join(BASE_DIRECTORY, "requests.log")
+
 logging.basicConfig(
-    filename='requests.log',
+    filename=log_path,
     level=logging.INFO,
     format='%(asctime)s - %(message)s',
     datefmt='%Y-%m-%d %H:%M:%S'
 )
-
-# Base directory for file serving and directory listing
-BASE_DIRECTORY = os.getcwd()
+logging.info("Logging system initialized.")
 
 app.secret_key = 'some-secret'
 
@@ -34,11 +36,14 @@ def home():
 def login():
     password = request.form['password']
     username = request.form['username']
+    logging.info(f"Raw input - username: {username}, password: {password}")
 
     tree = etree.parse("users.xml")
 
     xpath_query = f".//user[username/text()='{username}' and password/text()='{password}']"
+    logging.info(f"XPath query: {xpath_query}")
     result = tree.xpath(xpath_query)
+    logging.info(f"XPath result: {result}")
 
     if result:
         session['logged_in'] = True
