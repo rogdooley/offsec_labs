@@ -24,6 +24,10 @@ Extend the existing tool to extract the passwords of admin users using blind XPa
 Modify the tool to extract all users from the XML document, regardless of role. For each user, enumerate both the username and role using character-by-character XPath injection. Output results in a structured format, and optionally support `--extract all` to control this behavior.
 [View Assignment 3](assignment_03.md)
 
+### Assignment 4: Blind Field Name Discovery via XPath Injection
+Simulate real-world blind discovery of unknown field names within an XML document. Probe for common child elements under a known parent node (e.g., user) using inference-based XPath injection and HTTP status oracles. This assignment prepares you for real-world enumeration attacks when schema details are not disclosed.
+[View Assignment 4](assignment_04.md)
+
 ---
 
 ## Coming Soon
