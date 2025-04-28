@@ -59,3 +59,28 @@ python hard_mode_app.py
 - **General notes** about strategies you tried.
 
 ---
+
+---
+
+## Extra Credit (Optional Challenges)
+
+If you successfully achieve SSTI despite the character restrictions, attempt the following bonus tasks:
+
+1. **Reverse Shell Challenge**
+   - Use your payload to open a reverse shell back to your machine.
+   - Note: You may need to carefully construct your shell payload using allowed characters.
+
+2. **Environment Discovery**
+   - Dump all accessible environment variables from the server.
+   - Look for secrets like API keys, database credentials, or tokens.
+
+3. **Command Execution Chain**
+   - Chain multiple commands together.
+   - Example: Run `id`, `uname -a`, and `whoami` in a single payload.
+
+4. **Alternative Injection Vectors**
+   - Identify another input point in the application (besides the `name` field) where injection could occur if the app were expanded.
+
+Document your successes or any challenges you encountered while attempting these extra goals.
+
+---
