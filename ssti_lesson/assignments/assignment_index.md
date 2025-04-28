@@ -18,12 +18,8 @@ This file lists and links all assignments in the SSTI lesson series. Follow the 
    - Harden the Flask app against SSTI
    - Understand secure template rendering and input handling
 
----
-
-## Bonus Challenge
-
-4. [Bonus Challenge - No Braces Allowed](assignment_bonus.md)
-   - Can you exploit SSTI **without using `{}`** in your payloads?
+4. [Assignment 04 - Hard Mode SSTI Exploitation](assignment_04.md)
+   - Exploit the SSTI vulnerability in the hardened version of the Flask application (`hard_mode_app.py`), despite input character restrictions.
    - Explore creative techniques to trigger template rendering
-
 ---
+
