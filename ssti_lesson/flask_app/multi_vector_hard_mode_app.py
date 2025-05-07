@@ -25,6 +25,13 @@ def index():
         "<html>"
         "<head><title>Multi-Vector SSTI Challenge</title></head>"
         "<body>"
+        "<form method='POST'>"
+        "  <input name='name' placeholder='Enter your name'><br>"
+        "  <input name='email' placeholder='Enter your email'><br>"
+        "  <input name='comments' placeholder='Any comments?'><br>"
+        "  <input type='submit' value='Submit'>"
+        "</form>"
+        "<hr>"
         f"<h1>{greeting}, {name}!</h1>"
         f"<p>Your email: {email}</p>"
         f"<p>Your comments: {comments}</p>"
@@ -32,6 +39,7 @@ def index():
         "</body>"
         "</html>"
     )
+
 
     return render_template_string(template)
 

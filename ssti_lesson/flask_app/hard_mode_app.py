@@ -10,7 +10,7 @@ def index():
         forbidden ="{}[].|"
         for char in forbidden:
             name = name.replace(char, '')
-        template = f"Hello, {name}!"
+            template = f"{{{{ {name} }}}}"
         return render_template_string(template)
     return '''
         <form method="POST">
